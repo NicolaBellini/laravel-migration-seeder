@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('trains', function (Blueprint $table) {
-            $table->boolean('regionale')->default(0);
+            $table->boolean('regionale')->default(0)->after('azienda');
         });
     }
 
