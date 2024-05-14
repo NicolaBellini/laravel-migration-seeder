@@ -44,11 +44,12 @@ class trainsSeederTable extends Seeder
 
         while($exist){
             $slug= $original_slug.$counter;
+            $exist= train::where('slug', $slug)->first();
             $counter++;
         }
 
         return $slug;
-        dump($exist);
+
 
     }
 
