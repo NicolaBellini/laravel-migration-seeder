@@ -32,10 +32,25 @@ class trainsSeederTable extends Seeder
     }
 
     private function getSlugUnivoque($company, $code){
-        $slug = Str::slug($company,'-');
 
-        return $slug.'-'.$code;
-        dump($slug);
+        $stringToSlug = $company . '-' . $code;
+
+        $slug = Str::slug($stringToSlug,'-');
+        $original_slug= $slug;
+
+        $exist= train::where('slug', $slug)->first();
+
+        $counter=1;
+
+        while($exist){
+            $slug= $original_slug.$counter;
+            $counter++;
+        }
+
+        return $slug;
+        dump($exist);
 
     }
+
+
 }
