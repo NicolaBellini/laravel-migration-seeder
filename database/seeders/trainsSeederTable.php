@@ -34,7 +34,7 @@ class trainsSeederTable extends Seeder
     private function getSlugUnivoque($company, $code){
         $slug = Str::slug($company,'-');
 
-        return $slug;
+        return $slug.'-'.$code;
         dump($slug);
 
     }
