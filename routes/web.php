@@ -17,6 +17,6 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-Route::get('/chi-siamo', function () {
-    return view('about');
-})->name('about');
+Route::get('/trains', function () {
+    return view('my_trains');
+})->name('trains');
