@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\train;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model\trains;
+use Illuminate\Pagination\Paginator;
 
 class PageController extends Controller
 {
@@ -14,7 +15,8 @@ class PageController extends Controller
     }
 
     function trains(){
-        $trains= train::all();
+        $trains= train::paginate(10);
+        Paginator::useBootstrapFive();
         return view('my_trains', compact('trains'));
     }
 }
