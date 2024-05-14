@@ -28,7 +28,7 @@ class trainsSeederTable extends Seeder
         $train->cancellato= $faker->boolean();
         $train->slug= $this->getSlugUnivoque($train->azienda,$train->codice_treno);
 
-        dump($train);
+        $train->save();
     }
 
     private function getSlugUnivoque($company, $code){
