@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\guest\PageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,5 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-Route::get('/trains', function () {
-    return view('my_trains');
-})->name('trains');
+Route::get('/trains', [PageController::class, 'trains'])->name('trains');
+
